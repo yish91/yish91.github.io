@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Yi Sheng&#39;s Little Blog</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Yi Sheng&#39;s Little Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>©2020 Yi Sheng.</copyright>
+    <lastBuildDate>Tue, 23 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello World</title>
+      <link>/post/hello-world/</link>
+      <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/hello-world/</guid>
+      <description>So I have always liked the idea of starting a blog, and I have done so on many occasions. Most blog parts rely on a content management system to deliver said content that I write. However, content management systems have always been a bit of a pain in the ass to use.
+I can attest to all these. I have used various such services and platforms, anything from BlogSpot, LiveJournal, to WordPress and to the modern Javascript equivalent of Ghost.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
