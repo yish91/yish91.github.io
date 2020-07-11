@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><meta charset="utf-8"><meta name="generator" content="Hugo 0.72.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><title>July 2020 Project: Part 1 - Event Sourcing and CQRS&nbsp;&ndash;&nbsp;Yi Sheng&#39;s Little Blog</title><link rel="stylesheet" href="/css/core.min.1110bcea154478048794513f84edb4ddf3d5bd12f8bb7885ae3359d00465ff71409e563ee19b413e4490c5c6b6a7a44b.css" integrity="sha384-ERC86hVEeASHlFE/hO203fPVvRL4u3iFrjNZ0ARl/3FAnlY&#43;4ZtBPkSQxca2p6RL"><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="July 2020 Project: Part 1 - Event Sourcing and CQRS" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><img class="site logo" src="/img/logo.png" alt /><span class="site name">Yi Sheng's Little Blog</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a><a class="nav item" href="/about/">About</a></nav></div></span></div></section><section id="content"><div class="article-container"><section class="article header">
+    <h1 class="article title">July 2020 Project: Part 1 - Event Sourcing and CQRS</h1><p class="article date">Jul 10, 2020</p></section><article class="article markdown-body"><h1 id="intro">Intro</h1>
+<p>It is a bit late for this. But I finally got this little medium where I can store my monthly projects.</p>
+<p>So, for those of you new to this. I have decided to do a mini project on a monthly basis. One of it is to explore new technology and toys. The other is also to upscale myself technically and push myself.</p>
+<p>So without further ado! July&rsquo;s project!</p>
+<p>One of the frameworks I have been enamoured with since my time starting as a junior developer is that of CQRS and Event Sourcing (ES).</p>
+<p>I came into contact with ES during my time at <strong>StashAway</strong> (for more info, you can check out the last link). And one of the tech leads there have also implemented it at <strong>Endowus</strong> when he shifted over.</p>
+<p>So we know that there are very successful businesses and real life examples of ES. I find it extremely useful when it comes to the financial industry, due to the need to have an audit trail.</p>
+<h1 id="links">Links</h1>
+<p>For those of you who are unaware of such things, here are a few good resources to start you off:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=EqpalkqJD8M"target="_blank">An In-Depth Look at Event Sourcing With CQRS</a></li>
+<li><a href="https://www.youtube.com/watch?v=iGt0DBOWDTs"target="_blank">Go Back to the Future with Event Sourcing and CQRS</a></li>
+<li><a href="https://www.confluent.io/blog/making-sense-of-stream-processing/"target="_blank">Stream Processing, Event Sourcing, Reactive, CEP Explained</a></li>
+<li><a href="https://github.com/envato/event_sourcery#core-concepts"target="_blank">Event-Soucing Implementation in Ruby with excellent documentation</a></li>
+<li><a href="http://download.microsoft.com/download/e/a/8/ea8c6e1f-01d8-43ba-992b-35cfcaa4fae3/cqrs_journey_guide.pdf"target="_blank">CQRS Journey</a></li>
+<li><a href="https://medium.com/stashaway-engineering/event-sourcing-the-best-way-for-stashaway-7a2da36e6021"target="_blank">Event Sourcing at StashAway</a></li>
+</ul>
+<h1 id="evaluation">Evaluation</h1>
+<p>One of the technologies out there to implement such a thing is <a href="https://www.lagomframework.com/"target="_blank">Lagom</a>. Another I can mention is <a href="https://axoniq.io/"target="_blank">Axon</a>. But I will be focusing on the former as my primary basis of comparison because that is the framework which I use the most.</p>
+<p><code>Lagom</code> is fantastic when you consider its strengths. It is basically a microservice framework that has places for you to insert ES and CQRS stuff. Less opinionated than other frameworks.</p>
+<p>It is batteries included, so you can fire it up, and it will handle most of the background stuff for you like the messaging and event store.</p>
+<p>It is sweet. It is easy. If you need something that works out of the box, <code>Lagom</code> can pretty much do it for you.</p>
+<p>Okay that is the good stuff.</p>
+<p>Bad stuff. It is heavy. It is really really heavy. It runs on <code>Scala</code>/<code>Java</code>. If you run it on the former, you basically have to wrangle with <code>sbt</code> which is not the best and brightest of all the build tools out there.</p>
+<p>Your messaging system is <code>Kafka</code>. I like <code>Kafka</code> a lot. But for a simple messaging service. My god it is heavy as fuck. To handle all the brokers and service discovery, you have to manage <code>Zookeeper</code> on top of your <code>Kafka</code>.</p>
+<p>And your event store is <code>Cassandra</code>. Now I have a bit of a problem with this kind of architecture. When you save the events to <code>Cassandra</code>, and then push the message out via <code>Kafka</code>, there is a short window where if your stack goes down, there could be inconsistency where the event is saved, but nothing gets pushed out to the message broker.</p>
+<p>And have you tried querying <code>Cassandra</code>? Don&rsquo;t get me wrong. <code>Cassandra</code> is fantastic for writes. But the tradeoff is that it is terrible at reads. The materialised view is pretty much a broken feature. So you can handle the workload of the writes, but the price is a little too high to pay when you want to go through the events.</p>
+<p>In my role as a startup, I have always needed to juggle multiple hats. One of the most conflicting pair of hats is that of a backend lead, and a DevOps lead.</p>
+<p>As a backend lead, I love the batteries included part of the architecture, as it means I can just focus on writing code.</p>
+<p>But what most backend developers don&rsquo;t get, is that there is the <strong>Law of Equivalent Exchange</strong>. To quote <strong>Fullmetal Alchemist</strong>:</p>
+<blockquote>
+<p>Humankind cannot gain anything without first giving something in return. To obtain, something of equal value must be lost.</p>
+</blockquote>
+<p>And that loss is in the DevOps part of the equation. Having to juggle the complications of such a stack is not an easy feat, and time gained on the backend side, is lost on the DevOps side of the farm.</p>
+<h1 id="motivations">Motivations</h1>
+<p>Those are my own personal gripes with ES as I have experienced it through the lenses of <code>Lagom</code>.</p>
+<p>So during my stint at Fullerton Health, and now at Helicap, I have moved away from it, as I felt that majority of the projects I have encountered do not require the complexity that the <code>Lagom</code> stack requires.</p>
+<p>For teams with a significant investment in manpower, this won&rsquo;t be an issue. But not everyone has that luxury. And even then, I feel that developers tend to have a problem.</p>
+<p>We like to use over-engineered solutions to fix a problem. Sure, a nuclear bomb can kill an ant. But why would you do that?</p>
+<p>In my time as a developer, I realise that this philosophy of <em><strong>Keep it simple, stupid (KISS)</strong></em>, and <em><strong>You are not gonna need it (YAGNI)</strong></em> has been a pretty illuminating light so far, and has forced me to really mature as a developer.</p>
+<p>So I intend to rebuild an ES stack with these 2 principles in mind. Everything should be nice, deployable, and distributed, without having too much strain on the DevOps or the backend developer.</p>
+<p>Yes, folks, I want to have my cake and eat it too. And why shouldn&rsquo;t I? It is 2020, surely technology has moved on.</p>
+<h1 id="selection-of-tools">Selection of tools</h1>
+<p>I will most likely be building my project using <code>Go</code> for the very simple reason of: Binaries.</p>
+<p>Yeah. I like to deploy my event store using just a binary.</p>
+<p>To make it more consistent, the whole stack will most likely be <code>Go</code>, though it can probably be polyglottic if you really insist.</p>
+<ul>
+<li><strong>Message Queue:</strong> <code>NATS Streaming</code> for easy deployment</li>
+<li><strong>Database</strong>: <code>PostgresSQL</code> for easier queries</li>
+</ul>
+<p>And that&rsquo;s about it for now.</p>
+<h1 id="deliverables">Deliverables</h1>
+<p>I will probably be writing a bunch of articles, along with a <code>GitHub</code> repo with my codes on it.</p>
+<p>A version of this will probably be deployed to production in my company <code>Helicap</code>, depending on the use case.</p>
+<p>And I will try to do it by sometime in August.</p>
+<p>Yup.</p>
+<p>That&rsquo;s all folks!</p>
+</article><section class="article labels"><a class="category" href=/categories/project/>project</a><a class="category" href=/categories/programming/>programming</a><a class="category" href=/categories/go/>go</a><a class="tag" href=/tags/july2020/>july2020</a><a class="tag" href=/tags/event-sourcing/>event sourcing</a><a class="tag" href=/tags/cqrs/>cqrs</a><a class="tag" href=/tags/go/>go</a><a class="tag" href=/tags/programming/>programming</a></section><section class="article author"><img class="avatar" src="/img/profile.jpg" alt><p class="name">yish91</p><div class="bio">Yi Sheng is a programmer by day, and still a programmer at night. But occasionally, he loves to write nonsensical posts about various things in his life.</div><div class="details"><a class="item" href="https://github.com/yish91" target="_blank"><span class="iconfont icon-github"></span>&nbsp;yish91</a></div>
+</section></div>
+<div class="article bottom"><section class="article navigation"><p><a class="link" href="/post/hello-world/"><span class="iconfont icon-article"></span>Hello World</a></p></section></div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">©2020 Yi Sheng.</p>
+    <p class="powerby"><span>Powered by </span><a href="https://gohugo.io" 
+        target="_blank">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank">Notepadium</a></p>
+</div></section></body>
+
+</html>
