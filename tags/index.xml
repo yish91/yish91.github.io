@@ -1,86 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on Yi Sheng&#39;s Little Blog</title>
+    <title>Tags on You Suck At Life</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on Yi Sheng&#39;s Little Blog</description>
+    <description>Recent content in Tags on You Suck At Life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>©2020 Yi Sheng.</copyright>
-    <lastBuildDate>Fri, 10 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <copyright>©2020 You Suck At Life.</copyright>
     
         <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>cqrs</title>
-      <link>/tags/cqrs/</link>
-      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/cqrs/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>event sourcing</title>
-      <link>/tags/event-sourcing/</link>
-      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/event-sourcing/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>/tags/go/</link>
-      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/go/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>july2020</title>
-      <link>/tags/july2020/</link>
-      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/july2020/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>/tags/programming/</link>
-      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/programming/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>miscellaneous</title>
-      <link>/tags/miscellaneous/</link>
-      <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/miscellaneous/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>personal</title>
-      <link>/tags/personal/</link>
-      <pubDate>Tue, 23 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/personal/</guid>
-      <description></description>
-      
-    </item>
     
     <item>
       <title>index</title>

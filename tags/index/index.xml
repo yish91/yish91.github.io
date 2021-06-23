@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>index on Yi Sheng&#39;s Little Blog</title>
+    <title>index on You Suck At Life</title>
     <link>/tags/index/</link>
-    <description>Recent content in index on Yi Sheng&#39;s Little Blog</description>
+    <description>Recent content in index on You Suck At Life</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>©2020 Yi Sheng.</copyright>
+    <copyright>©2020 You Suck At Life.</copyright>
     
         <atom:link href="/tags/index/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Posts</title>
       <link>/post/</link>
-      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/post/</guid>
       <description></description>
